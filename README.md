@@ -7,7 +7,14 @@ CafeCosts app is a powerful tool for anyone involved in the baking or cafe indus
 mv .env-sample .env
 ```
 Create a random string and place it in `SECRET_KEY `.
+
 ### Step 2
+Create a virtual-environment and install dependencies.
+```
+pip install -r requirements.txt
+```
+
+### Step 3
 ```
 export FLASK_APP='models.py'
 flask db init && flask db migrate && flask db upgrade
