@@ -22,7 +22,7 @@ jac==0.18.0
 Jinja2==3.0.3
 jsmin==3.0.1
 lesscpy==0.15.0
-Mako==1.2.0
+Mako==1.2.2
 MarkupSafe==2.1.0
 ordereddict==1.1
 password-strength==0.0.3.post2
