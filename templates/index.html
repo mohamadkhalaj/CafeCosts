@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% block title %}خانه{% endblock %}
+
+{% block content %}
+<div id="contentMenu" class="col col-lg-10 d-block content overflow-auto m-1">
+	<div class="row settingMenu" id="settingMenu">
+		<div class="col">
+			<div class="row">
+				<img class="settingCloseButton" src="{{ url_for('static', filename= 'image/x-button.png') }}" onclick="settingCloseButton()" data-toggle="tooltip" title="بستن">
+			</div>	
+			<div class="row settingContent">
+				<div class="col-4">
+					هزینه ثابت
+					<div class="input-group mb-3">
+						<input autocomplete="off" type="text" class="form-control" id="additionalCostsSetting" aria-describedby="basic-addon1">
+					</div>
+				</div>
+				<div class="col-4">
+					ضریب قیمت 
+					<div class="input-group mb-3">
+						<input autocomplete="off" type="text" class="form-control" id="ratioSetting" aria-describedby="basic-addon1">
+					</div>
+				</div>
+				<div class="col-4">
+					وزن شیرینی
+					<div class="input-group mb-3">
+						<input autocomplete="off" type="text" class="form-control" id="netWeightSetting" aria-describedby="basic-addon1">
+					</div>
+				</div>
+			</div>	
+			<div class="row">
+				<div class='rowAdder'>
+					<button onclick="submitSetting()" type="button" class="btn btn-danger">اعمال</button>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<div class="row settingMenu" id="deleteMenu">
+		<div class="col">
+			<div class="row">
+				<img class="settingCloseButton" src="{{ url_for('static', filename= 'image/x-button.png') }}" onclick="deleteCloseButton()" data-toggle="tooltip" title="بستن">
+			</div>	
+			<div class="row settingContent m-3">
+				آیا از حذف این مورد اطمینان دارید؟
+			</div>	
+			<div class="row">
+				<div class='rowAdder'>
+					<button onclick="deleteRow()" type="button" class="btn btn-danger">حذف</button>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<div class="row settingMenu" id="deleteAllMenu">
+		<div class="col">
+			<div class="row">
+				<img class="settingCloseButton" src="{{ url_for('static', filename= 'image/x-button.png') }}" onclick="deleteAllCloseButton()" data-toggle="tooltip" title="بستن">
+			</div>	
+			<div class="row settingContent m-3">
+				آیا از حذف تمام موارد اطمینان دارید؟
+			</div>	
+			<div class="row">
+				<div class='rowAdder'>
+					<button onclick="deleteAllRows()" type="button" class="btn btn-danger">حذف همه</button>
+				</div>
+			</div>	
+		</div>
+	</div>
+	<div class="row settingMenu" id="saveNotifMenu">
+		<div class="col">
+			<div class="row">
+				<img class="settingCloseButton" src="{{ url_for('static', filename= 'image/x-button.png') }}" onclick="saveNotifClose()" data-toggle="tooltip" title="بستن">
+			</div>	
+			<div class="row settingContent m-3">
+				با موفقیت ذخیره شد!
+			</div>	
+		</div>
+	</div>
+	<div class="row settingMenu" id="saveMenu">
+		<div class="col">
+			<div class="row">
+				<img class="settingCloseButton" src="{{ url_for('static', filename= 'image/x-button.png') }}" onclick="saveCloseButton()" data-toggle="tooltip" title="بستن">
+			</div>	
+			{% if current_user.is_authenticated %}	
+				نام شیرینی را وارد کنید:
+				<input autocomplete="off" placeholder="نام شیرینی" type="text" class="form-control" id="confName" aria-describedby="basic-addon1">
+				<div class="row">
+					<div class='rowAdder'>
+						<button onclick="save()" type="button" class="btn btn-danger">ذخیره</button>
+					</div>
+				</div>
+			{% else %}
+				<input autocomplete="off" placeholder="نام شیرینی" type="text" class="form-control d-none" id="confName" aria-describedby="basic-addon1">
+				<div class="row settingContent m-3">
+					برای ذخیره کردن ابتدا باید&nbsp;<a style="color: #9f3661;" href="{{ url_for('auth.login') }}"> وارد اکانت </a>&nbsp;خود بشوید.
+				</div>
+			{% endif %}
+		</div>
+	</div>
+	<table class="table table-borderless">
+		<thead>
+			<tr>
+				<th scope="col">نام</th>
+				<th scope="col">قیمت</th>
+				<th scope="col">وزن</th>
+				<th scope="col">مقدار استفاده شده</th>
+				<th scope="col">قیمت کل</th>
+				<th scope="col"></th>
+			</tr>
+		</thead>
+		<tbody id = "tbody">
+			<tr id = 'dataInput' class="dataInput">
+				<td>
+					<div class="input-group mb-3">
+						<input autocomplete="off" placeholder="نام" type="text" class="form-control in" id="name" aria-describedby="basic-addon1">
+					</div>
+				</td>
+				<td>
+					<div class="input-group mb-3">
+						<input autocomplete="off" placeholder="قیمت" type="text" class="form-control in" id="price" aria-describedby="basic-addon1">
+					</div>
+				</td>
+				<td>
+					<div class="input-group mb-3">
+						<input autocomplete="off" placeholder="وزن" type="text" class="form-control in" id="weight" aria-describedby="basic-addon1">
+					</div>
+				</td>
+				<td>
+					<div class="input-group mb-3">
+						<input autocomplete="off" placeholder="مقدار استفاده شده" type="text" class="form-control in" id="used" aria-describedby="basic-addon1">
+					</div>
+				</td>
+				<td>
+					<div class="input-group mb-3">
+						
+					</div>
+				</td>
+				<td>
+					<div class="input-group mb-3">
+						<img class="deleteAllButton" onclick="openDeleteAllMenu()" src="{{ url_for('static', filename= 'image/x-button.png') }}" data-toggle="tooltip" title="حذف همه">
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class='rowAdder container calculatorRow' id="calculatorRow">
+		<div class="row">
+			<div class="col-2">
+				<img class="saveImg" src="{{ url_for('static', filename= 'image/save.png') }}" onclick="openSaveMenu()" data-toggle="tooltip" title="ذخیره کردن">
+			</div>
+			<div class="col-2">
+				<img class="settingButton" src="{{ url_for('static', filename= 'image/settings.png') }}" onclick="openSettingMenu()" data-toggle="tooltip" title="تنظیمات">
+			</div>
+			<div class="col-3" id="netPrice">
+				قیمت کل:
+			</div>
+			<div class="col-3" id="netWeight">
+				مقدار هر کیلو:
+			</div>
+			<div class="col-2" id="products">
+				تعداد مواد: 
+			</div>
+		</div>
+	</div>
+	<div class='rowAdder'>
+		<button onclick="addRow()" type="button" class="btn btn-primary btn-outline-light addButton">+ افزودن</button>
+	</div>
+	{% if current_user.is_authenticated %}
+	<div class='rowAdder'>
+		<a href="{{ url_for('main.dashboard') }}" type="button" class="btn btn-outline-light addButton">بازگشت به منو</a>
+	</div>
+	{% else %}
+	<div class='rowAdder'>
+		<a href="{{ url_for('auth.login') }}" type="button" class="btn btn-danger btn-outline-light addButton">ورود</a>
+	</div>
+	{% endif %}
+
+{% if current_user.is_authenticated and data %}
+<script>
+	ratio = {{data['multiplier']}};
+	additionalCosts = {{data['additionalCost']}};
+	netWeight = {{data['weight']}};
+	var values = {{data['items']|safe}};
+	loadRowsCaller(values);
+	name = "{{data['title']}}";
+</script>
+{% endif %}
+</div>
+{% endblock %}

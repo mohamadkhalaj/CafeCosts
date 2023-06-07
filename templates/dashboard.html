@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}پنل کاربری{% endblock %}
+
+{% block content %}
+<div class="row settingMenu" id="deleteMenu">
+	<div class="col">
+		<div class="row">
+			<img class="settingCloseButton" src="{{ url_for('static', filename= 'image/x-button.png') }}" onclick="deleteCloseButton()" data-toggle="tooltip" title="بستن">
+		</div>	
+		<div class="row settingContent m-3">
+			آیا از حذف این مورد اطمینان دارید؟
+		</div>	
+		<div class="row">
+			<div class='rowAdder'>
+				<button onclick="deleteIngredient()" type="button" class="btn btn-danger">حذف</button>
+			</div>
+		</div>	
+	</div>
+</div>
+<div id="contentMenu" class="col col-lg-10 d-block content overflow-auto m-1">
+	{% for item in data %}
+		<div class='rowAdder'>
+			<img onclick="openDeleteMenu(this, true)" class="deleteDash" id='{{item.id}}' src="{{ url_for('static', filename='image/trash.png') }}" alt="">
+			<a href="{{ url_for('main.index') }}{{item.id}}" style="direction: rtl" type="button" class="btn btn-outline-light addButton">{{item.title}}، مواد بکار رفته: {{item.items|count}}</a>
+		</div>
+	{% endfor %}
+	<div class='rowAdder'>
+		<a href="{{ url_for('main.index') }}" type="button" class="btn btn-primary btn-outline-light addButton">+ شیرینی جدید</a>
+	</div>
+	{% if current_user.is_authenticated %}
+	<div class='rowAdder'>
+		<a href="{{ url_for('auth.logout') }}" type="button" class="btn btn-danger btn-outline-light addButton">خروج</a>
+	</div>
+	{% endif %}
+</div>
+{% endblock %}

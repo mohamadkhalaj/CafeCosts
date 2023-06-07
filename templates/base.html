@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Ingredient Calulator | {% block title %}{% endblock %}</title>
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename= 'css/bootstrap.min.css') }}">
+		<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+		<link rel="icon" href="{{ url_for('static', filename= 'image/favicon.ico') }}" type="image/x-icon">
+		<script type="text/javascript" src="{{ url_for('static', filename= 'js/script.js') }}">clearInputs()</script>
+	</head>
+	<body onLoad="console.clear()">
+		<div class="wrapper"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<a href="{{ url_for('main.index') }}"><img loading="lazy" class="logo" src="{{ url_for('static', filename= 'image/logo.png') }}"></a>
+					<p class="info">محاسبه گر قیمت انواع کیک و شیرینی</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col col-lg-1 col-md-1 d-none d-md-block">
+				
+				</div>
+
+					
+					{% block content %}
+
+					{% endblock %}
+
+				<div class="col col-lg-1 col-md-1 d-none d-md-block">
+				
+				</div>
+			</div>
+
+			<div class="footer">
+				<p class="aboutus">Developed By <a href="https://t.me/OxMoh4mmad" target="_blank">MohammadMahdi Khalaj</a></p>
+			</div>
+		</div>
+		<script type="text/javascript" src="{{ url_for('static', filename= 'js/bootstrap.min.js') }}"></script>
+	</body>
+</html>
