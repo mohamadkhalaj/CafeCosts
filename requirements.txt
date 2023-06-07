@@ -34,6 +34,6 @@ rjsmin==1.2.0
 six==1.16.0
 soupsieve==2.3.1
 SQLAlchemy==1.4.32
-Werkzeug==2.0.3
+Werkzeug==2.2.3
 xxhash==3.0.0
 zipp==3.7.0
