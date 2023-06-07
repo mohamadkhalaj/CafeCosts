@@ -1,0 +1,219 @@
+@font-face {
+  font-family: tableFont;
+  src: url('../font/Yekan.ttf');
+}
+
+body {
+	font-family: tableFont;
+	background-color: #9F3661;
+}
+
+.col {
+	text-align: center;
+}
+
+.logo {
+	width: 333px;
+}
+
+a {
+	color:  white;
+	text-decoration: none;
+}
+
+a:hover {
+	color:  white;
+	text-decoration: none;	
+}
+
+.footer {
+	position: relative;
+	bottom: 0;
+	text-align: center;
+	margin-top: 50px;
+	color: white;
+} 
+
+.content {
+	border: 3px solid white;
+	border-radius: 10px;
+	height: 450px;
+}
+
+.table {
+	color: white;
+}
+
+.rowAdder {
+	position: relative;
+	top: 0;
+	text-align: center;
+	color: white;
+	width: 100%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.addButton {
+	width: 100%;
+	height: 42px;
+	border-radius: 10px;
+}
+
+.info {
+	color:  white;
+	font-weight: bold;
+	direction: rtl;
+}
+
+.delete {
+	cursor: pointer;
+}
+
+.calculatorRow {
+	display: none;
+	direction: rtl;
+}
+
+.dataInput {
+	border-top: 1px solid white;
+}
+
+.settingButton {
+	cursor: pointer;
+	width: 35px;
+	height: 35px;
+}
+
+.form-control {
+	text-align: center !important;
+}
+
+.settingMenu {
+	display: none;
+	position: fixed;
+	left: 48%;
+	transform: translateX(-50%);
+	min-width: 380px;
+	border: 1px solid white;
+	border-radius: 10px;
+	z-index: 100;
+	background-color: white;
+	direction: rtl;
+	margin:  10px;
+	z-index: 2;
+	top: 18px;
+}
+
+.wrapper {
+	background-color: rgba(0,0,0,0.5);
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 1;
+	visibility: hidden;
+}
+
+.settingCloseButton {
+	font-size: 20px;
+	cursor: pointer;
+	margin-right: 2px;
+	margin-top: 5px;
+	margin-bottom: 30px;
+	width: 35px;
+	height: 35px;
+}
+
+.aboutus {
+	font-size: 12px;
+	margin: 10px;
+	font-style: italic;
+}
+
+.deleteRow {
+	width: 25px;
+	height: 25px;
+}
+
+.deleteAllButton {
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+}
+
+.saveBtn {
+	position: absolute;
+	float: right;
+	bottom: 0;
+	right: 0;
+	margin: 20px;
+	border: 0;
+}
+
+.saveBtn:hover {
+	border: 0;
+	background-color: transparent;
+}
+
+.saveImg {
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+}
+
+.input-group .in:focus {
+	width: 200px;
+}
+
+.login-form {
+    width: 340px;
+    margin: 50px auto;
+  	font-size: 15px;
+}
+.login-form form {
+    margin-bottom: 15px;
+    background: #9f2f5d;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+}
+.login-form h2 {
+    margin: 0 0 15px;
+}
+.form-control, .btn {
+    min-height: 38px;
+    border-radius: 2px;
+}
+.btn {        
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.text-center {
+	color: white;
+}
+
+.deleteDash {
+	width: 20px;
+	height: 20px;
+	float: right;
+	position: absolute;
+	right: 0;
+	margin: 10px;
+}
+
+.deleteDash:hover {
+	background-color: white;
+	cursor: pointer;
+}
+
+.formLabel {
+	color: white;
+	font-size: large;
+	float: right;
+	direction: rtl;
+}
+
+.flashLogin {
+	direction: rtl;	
+	text-align: right;
+}
