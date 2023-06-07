@@ -1,5 +1,5 @@
 # CafeCosts
-This app is a powerful tool for anyone involved in the baking or cafe industry. It allows users to calculate the cost of ingredients for cakes and other cafe products, ensuring that they can accurately price their items and maintain profitability. The app is easy to use and customizable, with features that allow users to adjust ingredient costs and quantities based on their specific needs. With its intuitive interface and robust functionality, this app is an essential asset for any baker or cafe owner looking to streamline their operations and maximize their profits.
+CafeCosts app is a powerful tool for anyone involved in the baking or cafe industry. It allows users to calculate the cost of ingredients for cakes and other cafe products, ensuring that they can accurately price their items and maintain profitability. The app is easy to use and customizable, with features that allow users to adjust ingredient costs and quantities based on their specific needs. With its intuitive interface and robust functionality, this app is an essential asset for any baker or cafe owner looking to streamline their operations and maximize their profits.
 
 # How to compile
 ### Step 1
