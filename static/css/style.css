@@ -13,7 +13,8 @@ body {
 }
 
 .logo {
-	width: 333px;
+	width: 200px;
+	margin: 20px;
 }
 
 a {
@@ -30,7 +31,7 @@ a:hover {
 	position: relative;
 	bottom: 0;
 	text-align: center;
-	margin-top: 50px;
+	margin-top: 30px;
 	color: white;
 } 
 
